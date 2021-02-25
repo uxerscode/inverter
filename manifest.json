@@ -1,0 +1,25 @@
+{
+  "name" : "Color Inverter",
+  "description": "Invert colors...duh.",
+  "host" : {
+    "app" : "XD",
+    "minVersion" : "21.0"
+  },
+  "id" : "89929b9c",
+  "icons" : [ {
+    "path" : "images/icon@1x.png",
+    "width" : 24,
+    "height" : 24
+  }, {
+    "path" : "images/icon@2x.png",
+    "width" : 48,
+    "height" : 48
+  } ],
+  "uiEntryPoints" : [ {
+    "type" : "menu",
+    "label":"Color Inverter",
+    "commandId" : "invertColors",
+    "shortcut": { "mac": "Cmd+Alt+I", "win": "Ctrl+Alt+I" }
+  } ],
+  "version" : "0.0.1"
+}
