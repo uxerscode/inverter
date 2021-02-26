@@ -1,4 +1,6 @@
-const {Color, ImageFill} = require("scenegraph"); 
+const {Color} = require("scenegraph");
+var assets = require("assets");
+
 
 function invertColor(color) {
     var a = color.a;
@@ -8,6 +10,21 @@ function invertColor(color) {
     return new Color({r: r, b: b, g: g, a:a});
 }
 
+function invertColorAssets() {
+    var allColors = assets.colors.get();
+    allColors.forEach((asset) => {
+        if(asset.color instanceof Color) {
+            assets.colors.delete(asset);
+        }
+    });
+    allColors.forEach((asset) => {
+        if(asset.color instanceof Color) {
+            asset.color = invertColor(asset.color);
+            assets.colors.add(asset);
+        }
+    });
+}
+
 function invertNodeColor(node) {
     if(node.fill) {
         if(node.fill instanceof Color) {
@@ -15,7 +32,7 @@ function invertNodeColor(node) {
         }
     }
     if(node.stroke) {
-        if(node.strok instanceof Color) {
+        if(node.stroke instanceof Color) {
             node.stroke = invertColor(node.stroke);
         }
     }
@@ -31,6 +48,7 @@ function invertNode(node) {
 function invertColorsFunction(selection, documentRoot) {
     if(selection.items.length === 0) {
         invertNode(documentRoot);
+        invertColorAssets();
     } else {
         selection.items.forEach((node) => {
             invertNode(node);

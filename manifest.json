@@ -1,6 +1,6 @@
 {
   "name" : "Color Inverter",
-  "description": "Invert colors...duh.",
+  "description": "Invert the colors of a selection or the entire document.",
   "host" : {
     "app" : "XD",
     "minVersion" : "21.0"
@@ -19,7 +19,7 @@
     "type" : "menu",
     "label":"Color Inverter",
     "commandId" : "invertColors",
-    "shortcut": { "mac": "Cmd+Alt+I", "win": "Ctrl+Alt+I" }
+    "shortcut": { "mac": "Cmd+Shift+Alt+I", "win": "Ctrl+Shift+Alt+I" }
   } ],
-  "version" : "0.0.1"
+  "version" : "1.0.1"
 }
